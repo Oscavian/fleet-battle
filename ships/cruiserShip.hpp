@@ -9,7 +9,7 @@
 class CruiserShip : public Ship {
 public:
     CruiserShip();
-    void attack(Ship &target) final;
+    void attack(Ship &target, int &hitChance) final;
 };
 
 

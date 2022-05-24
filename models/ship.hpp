@@ -6,21 +6,28 @@
 #define FLEET_BATTLE_SHIP_HPP
 
 #include <string>
-#include "../attack.hpp"
+#include <iostream>
+#include "stdexcept"
+#include "../abilities/attack.hpp"
 
-enum ShipTypes {
-    hunter, destroyer, cruiser
-};
 
 class Ship : public Attack {
 public:
     Ship(int shell, int size, int damage);
     std::string getName();
+
+    int getSize() const;
+    int getShell() const;
+    int getAttackDamage() const;
+    bool takeDamage(int amount);
+    bool isDead();
 protected:
     int shell;
     int size;
     int damage;
     std::string name;
+    std::string owner;
+    bool dead = false;
 };
 
 

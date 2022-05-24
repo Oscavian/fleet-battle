@@ -9,7 +9,7 @@
 class HunterShip : public Ship {
 public:
     HunterShip();
-    void attack(Ship &target) final;
+    void attack(Ship &target, int &hitChance) final;
 };
 
 

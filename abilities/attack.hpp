@@ -8,7 +8,7 @@ class Ship;
 
 class Attack {
 public:
-    virtual void attack(Ship &target) = 0;
+    virtual void attack(Ship &target, int &hitChance) = 0;
 };
 
 #endif //FLEET_BATTLE_ATTACK_HPP

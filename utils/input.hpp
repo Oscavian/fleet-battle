@@ -10,6 +10,7 @@ class Input {
 public:
     static int getIntInRange(int min, int max);
     static int getIntInput();
+    static int getYN();
 };
 
 

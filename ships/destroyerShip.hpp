@@ -9,7 +9,7 @@
 class DestroyerShip : public Ship{
 public:
     DestroyerShip();
-    void attack(Ship &target) final;
+    void attack(Ship &target, int &hitChance) final;
 
 };
 

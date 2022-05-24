@@ -5,15 +5,16 @@
 #ifndef FLEET_BATTLE_FLEET_HPP
 #define FLEET_BATTLE_FLEET_HPP
 #include "vector"
-#include "ship.hpp"
 #include "stdexcept"
+#include "ship.hpp"
 
 class Fleet {
 public:
     Fleet();
     virtual ~Fleet();
-    void addShip(Ship &newShip);
+    void addShip(Ship* newShip);
     void removeShip(int index);
+    Ship* getShipAt(int index);
     int getShipAmount();
 private:
     std::vector<Ship*> m_ships;

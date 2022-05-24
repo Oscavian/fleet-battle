@@ -5,11 +5,16 @@
 #ifndef FLEET_BATTLE_DIE_HPP
 #define FLEET_BATTLE_DIE_HPP
 
-
+#include "random"
 class Die {
 public:
     //fake dice zum testen implementieren
-    virtual void roll() = 0;
+    int roll1toX(int max);
+    static int getRndInt(int min, int max);
+private:
+    bool isFake = false;
+    int predefinedVal = 0;
+
 };
 
 

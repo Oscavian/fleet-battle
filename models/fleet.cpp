@@ -12,9 +12,9 @@ Fleet::Fleet() {
  * @throws length_error if the maximum ship amount is exceeded (9)
  * @param newShip
  */
-void Fleet::addShip(Ship &newShip) {
+void Fleet::addShip(Ship* newShip) {
     if (getShipAmount() < 9){
-        m_ships.push_back(&newShip);
+        m_ships.push_back(newShip);
     } else {
         throw std::length_error("Ship maximum exceeded!");
     }
@@ -29,6 +29,8 @@ void Fleet::removeShip(int index) {
     if (index < 0 || index > getShipAmount() - 1){
         throw std::invalid_argument("Wrong index specified!");
     }
+
+    m_ships.erase(m_ships.begin() + index);
 }
 
 
@@ -40,4 +42,11 @@ Fleet::~Fleet() {
 
 int Fleet::getShipAmount() {
     return (int)m_ships.size();
+}
+
+Ship *Fleet::getShipAt(int index) {
+    if (index < 0 || index > getShipAmount() - 1){
+        throw std::out_of_range("Index out of range!");
+    }
+    return m_ships.at(index);
 }
