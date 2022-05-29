@@ -12,9 +12,5 @@ int Die::getRndInt(int min, int max) {
 }
 
 int Die::roll1toX(int max) {
-    if (isFake){
-        return predefinedVal;
-    } else {
-        return getRndInt(1, max);
-    }
+    return getRndInt(1, max);
 }

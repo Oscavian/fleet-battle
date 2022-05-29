@@ -11,7 +11,12 @@ void HunterShip::attack(Ship &target, int &hitChance) {
     }
     std::cout << name << " attacks " << target.getName() << "\n";
     if (hitChance <= target.getSize()) {
-        target.takeDamage(damage);
+        if (hitChance == 1 || hitChance == 2){
+            std::cout << "Critical Hit!\n";
+            target.takeDamage(damage * 2);
+        } else {
+            target.takeDamage(damage);
+        }
     } else {
         std::cout << name << " missed...\n";
         return;

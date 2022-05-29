@@ -21,7 +21,7 @@ public:
 private:
     void setupFleets();
     void launchAttack(Fleet& attacker, Fleet& target);
-    Ship *getNewShip();
+    static Ship *getNewShip();
     void play();
     Fleet fleet1;
     Fleet fleet2;

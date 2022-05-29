@@ -20,13 +20,12 @@ public:
     int getShell() const;
     int getAttackDamage() const;
     bool takeDamage(int amount);
-    bool isDead();
+    bool isDead() const;
 protected:
     int shell;
     int size;
     int damage;
     std::string name;
-    std::string owner;
     bool dead = false;
 };
 

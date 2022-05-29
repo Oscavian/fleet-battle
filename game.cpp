@@ -63,8 +63,10 @@ Ship * Game::getNewShip() {
     }
 }
 
+
+
 /**
- *
+ * prompts the players, to select the ship for their fleet
  */
 void Game::setupFleets() {
     for (int i = 9; i > 0; i--){
@@ -73,7 +75,13 @@ void Game::setupFleets() {
         std::cout << i << " Ships remaining\n";
         auto newShip = getNewShip();
         if (newShip == nullptr){
-            break;
+            if (fleet1.getShipAmount() == 0){
+                std::cout << "Please select at least one ship.\n";
+                i++;
+                continue;
+            } else {
+                break;
+            }
         }
         fleet1.addShip(newShip);
     }
@@ -86,7 +94,13 @@ void Game::setupFleets() {
         std::cout << i << " Ships remaining\n";
         auto newShip = getNewShip();
         if (newShip == nullptr){
-            break;
+            if (fleet2.getShipAmount() == 0){
+                std::cout << "Please select at least one ship.\n";
+                i++;
+                continue;
+            } else {
+                break;
+            }
         }
         fleet2.addShip(newShip);
     }
@@ -95,7 +109,7 @@ void Game::setupFleets() {
 void Game::launchAttack(Fleet &attacker, Fleet& target) {
     int chosenShip = Die::getRndInt(0, attacker.getShipAmount() - 1);
     int targetShip = Die::getRndInt(0, target.getShipAmount() - 1);
-    int chance = die.roll1toX(10);
+    int chance = Die::roll1toX(10);
 
 
     attacker.getShipAt(chosenShip)->attack(*target.getShipAt(targetShip), chance);

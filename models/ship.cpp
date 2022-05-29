@@ -41,7 +41,7 @@ bool Ship::takeDamage(int amount) {
     }
 
     shell -= amount;
-    std::cout << name << " from " << owner << " took " << amount << " damage!\n";
+    std::cout << name << " took " << amount << " damage!\n";
 
     if (shell < 1){
         dead = true;
@@ -54,7 +54,7 @@ bool Ship::takeDamage(int amount) {
 
 }
 
-bool Ship::isDead() {
+bool Ship::isDead() const {
     if (dead)
         return true;
     else

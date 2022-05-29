@@ -11,6 +11,10 @@ DestroyerShip::DestroyerShip() : Ship(150, 6, 60) {
 
 void DestroyerShip::attack(Ship &target, int &hitChance) {
     std::cout << name << " attacks " << target.getName() << "\n";
+    hitChance -= 2;
+    if (hitChance < 0){
+        hitChance = 0;
+    }
     if (hitChance <= target.getSize()) {
         target.takeDamage(damage);
     } else {

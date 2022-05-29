@@ -8,13 +8,8 @@
 #include "random"
 class Die {
 public:
-    //fake dice zum testen implementieren
-    int roll1toX(int max);
+    static int roll1toX(int max);
     static int getRndInt(int min, int max);
-private:
-    bool isFake = false;
-    int predefinedVal = 0;
-
 };
 
 
